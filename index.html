@@ -1,0 +1,41 @@
+Algorithm SumDistinct
+Variables:
+    A, B: Arrays of integers
+    n, m, i, j, sum: Integer
+    found: Boolean
+
+Begin
+    A ← [3, 1, 7, 9]
+    B ← [2, 4, 1, 9, 3]
+    n ← 4
+    m ← 5
+    sum ← 0
+
+    For i ← 1 to n Do
+        found ← False
+        For j ← 1 to m Do
+            If A[i] = B[j] Then
+                found ← True
+            EndIf
+        EndFor
+
+        If found = False Then
+            sum ← sum + A[i]
+        EndIf
+    EndFor
+
+    For i ← 1 to m Do
+        found ← False
+        For j ← 1 to n Do
+            If B[i] = A[j] Then
+                found ← True
+            EndIf
+        EndFor
+
+        If found = False Then
+            sum ← sum + B[i]
+        EndIf
+    EndFor
+
+    Write("Sum of distinct elements: ", sum)
+End
